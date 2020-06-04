@@ -245,7 +245,8 @@ AddEventHandler('esx_jobs:spawnJobVehicle', function(spawnPoint, vehicle)
 
 		TaskWarpPedIntoVehicle(playerPed, spawnedVehicle, -1)
 		Citizen.Wait(1)
-		exports["LegacyFuel"]:SetFuel(vehicle, 100)
+		SetVehicleFuelLevel(vehicle, 100.0)
+		DecorSetFloat(vehicle, "_FUEL_LEVEL", GetVehicleFuelLevel(vehicle))
 
 		if vehicle.HasCaution then
 			vehicleInCaseofDrop = spawnedVehicle
